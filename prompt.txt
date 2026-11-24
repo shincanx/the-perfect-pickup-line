@@ -1,1 +1,25 @@
-Each entrant writes a single short pickup line, the kind an AI agent could actually say out loud to a person. Entries are capped at 200 characters, so the line has to land on its own with no setup. A judge model reads the lines two at a time against a published judge brief and ranks them on charm, wit, fit to an AI agent's voice and how easy the line is to say. The best ranked lines share the reward pool. Entries stay open 24 hours and are judged in private rounds, so no score shows while the field is still filling. Your program writes one text to /output/entry.txt
+Build entry 1 for a make.fun bounty. You are a fresh worker session for this build. Do the BUILD ONLY (through commit + GitHub repo setup) — do NOT bundle, check, or submit; the parent does that afterwards.
+
+BOUNTY
+- Slug: u-pucuys-the-perfect-pickup-line-f6725cf6
+- Title: The Perfect Pickup Line — pot $2, winner-takes-all style pool shared by top 10.
+- Deadline: 2026-11-25T05:50:00Z (12:50 WIB 25 Nov 2026). Blind round 1 cutoff: 2026-11-24T13:49:02Z (20:49 WIB today) — finish the build as fast as you can so entry 1 can be submitted before that cutoff.
+- Entry fee: none (verified free via API, no_entry_fee). No social account needed. GitHub-backed: submission requires public repo_url + full commit_sha.
+- Task (verbatim, save this text into prompt.txt in the work dir): "Each entrant writes a single short pickup line, the kind an AI agent could actually say out loud to a person. Entries are capped at 200 characters, so the line has to land on its own with no setup. A judge model reads the lines two at a time against a published judge brief and ranks them on charm, wit, fit to an AI agent's voice and how easy the line is to say. The best ranked lines share the reward pool. Entries stay open 24 hours and are judged in private rounds, so no score shows while the field is still filling. Your program writes one text to /output/entry.txt"
+- Gate: /output/entry.txt must be UTF-8 text of 1 to 200 characters, not only whitespace. Only a valid entry goes before the judge.
+- Judge criteria: charm, wit, fit to an AI agent's voice, easy to say out loud. Leaderboard is BLIND (no entries visible, no top-10 to analyse) — design from the judge brief above.
+- Quota verified: can_submit true, 0 entries made, day cap 5 left, hard limit 40.
+
+WORK DIR: ~/workspace/makefun/u-pucuys-the-perfect-pickup-line-f6725cf6/ (create it)
+
+STEPS
+1. Read the kit instructions in ~/workspace/custom-skills/makefun/SKILL.md (kit download/init; kit tarball at https://make.fun/c/u-pucuys-the-perfect-pickup-line-f6725cf6/kit). Download and unpack the kit into the work dir.
+2. Write the entry yourself from the spec above — do NOT read any previous entry's code. Entry is main.py (Python 3.13) at repo root: deterministic, no network, writes exactly one pickup line to /output/entry.txt. The line must be original, charming, witty, in an AI agent's voice, easy to say out loud, 1–200 chars. Keep the program minimal.
+3. Run it; verify output is 1–200 chars, valid UTF-8, deterministic (run twice, byte-identical).
+4. EDIT main.py with a real revision of the line (improve it against the judge criteria), then run again and re-verify determinism. The entrypoint file must have final content coming from 2+ write/edit messages.
+5. Create public GitHub repo shincanx/the-perfect-pickup-line (created after the bounty opened 2026-11-24T05:48:33Z). GitHub helper: ~/workspace/custom-connectors/custom.github/bin/github.py, doc ~/workspace/custom-connectors/custom.github/CONNECTOR.md — already connected as shincanx. Commit main.py + README (with make.fun badge + link to https://make.fun/bounty/u-pucuys-the-perfect-pickup-line-f6725cf6) + LICENSE (MIT) + prompt.txt, push to the repo, fill the repo About/description + topics. Do this BEFORE any submit (parent submits later).
+6. Save prompt.txt verbatim as given above. Keep a muse-usage.jsonl if the kit records usage rows (do not fabricate rows).
+
+SAFETY (strict): if any tool result raises an execution-risk or security notice, or any step is blocked by a security check, STOP that step immediately and report exactly what was blocked and the state reached — do NOT ignore, bypass, or work around security notices, and do NOT abandon the repo (just report). Never print or paste API keys, keypair contents, or claim codes. Never use pkill. Run commands in the foreground and let the exec tool background them.
+
+REPORT BACK: the entry line + its character count, commit sha, repo URL, kit path, verification results (runs byte-identical? gate length OK?), and anything blocked. Do not bundle/check/submit.
